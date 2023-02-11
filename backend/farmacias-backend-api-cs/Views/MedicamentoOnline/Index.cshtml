@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Project.Models.MedicamentoOnline>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaDescarga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrConcentracion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrImagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrLaboratorio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrMarca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPaginaProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPrecioUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPresentacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPrincipioActivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrRegistroInvima)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdPortalOrigen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaDescarga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrConcentracion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrEan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrImagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrLaboratorio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrMarca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPaginaProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPrecioUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPresentacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPrincipioActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrRegistroInvima)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdPortalOrigen)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdMedicamento">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdMedicamento">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdMedicamento">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

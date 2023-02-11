@@ -1,0 +1,49 @@
+﻿@model Project.Models.Propiedades
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Propiedades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdPropiedad" />
+            <div class="form-group">
+                <label asp-for="StrDescripcionPropiedad" class="control-label"></label>
+                <input asp-for="StrDescripcionPropiedad" class="form-control" />
+                <span asp-validation-for="StrDescripcionPropiedad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrGrupo" class="control-label"></label>
+                <input asp-for="StrGrupo" class="form-control" />
+                <span asp-validation-for="StrGrupo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrNombrePropiedad" class="control-label"></label>
+                <input asp-for="StrNombrePropiedad" class="form-control" />
+                <span asp-validation-for="StrNombrePropiedad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrValorPropiedad" class="control-label"></label>
+                <input asp-for="StrValorPropiedad" class="form-control" />
+                <span asp-validation-for="StrValorPropiedad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

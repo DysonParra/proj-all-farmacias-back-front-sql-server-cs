@@ -1,0 +1,42 @@
+﻿@model Project.Models.Ciudad
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Ciudad</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IntIdDane)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IntIdDane)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IntIdEstado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IntIdEstado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrEstado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrEstado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrNombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrNombre)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IntIdCiudad">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,54 @@
+﻿@model Project.Models.Farmacia
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Farmacia</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrCelular)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrCelular)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrNit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrNit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrNombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrNombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrTelefonoFijo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrTelefonoFijo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrUrlExtraccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrUrlExtraccion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IntIdBarrio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IntIdBarrio)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IntCodigoFarmacia">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

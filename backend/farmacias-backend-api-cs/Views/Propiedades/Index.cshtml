@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Project.Models.Propiedades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDescripcionPropiedad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrGrupo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombrePropiedad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrValorPropiedad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDescripcionPropiedad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrGrupo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombrePropiedad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrValorPropiedad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdPropiedad">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdPropiedad">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdPropiedad">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
