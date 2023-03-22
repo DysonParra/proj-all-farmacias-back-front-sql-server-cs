@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {LaboratorioMedicamento} se encarga de realizar tareas específicas.
+ * @fileoverview    {LaboratorioMedicamento}
  *
  * @version         2.0
  *
