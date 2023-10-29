@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code FarmaciaMedicamento}.
+ * TODO: Description of {@code FarmaciaMedicamento}.
  *
  * @author Dyson Parra
  */

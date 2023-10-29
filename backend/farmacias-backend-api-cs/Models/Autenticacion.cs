@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Autenticacion}.
+ * TODO: Description of {@code Autenticacion}.
  *
  * @author Dyson Parra
  */

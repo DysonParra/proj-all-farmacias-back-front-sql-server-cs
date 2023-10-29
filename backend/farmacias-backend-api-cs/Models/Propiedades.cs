@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Propiedades}.
+ * TODO: Description of {@code Propiedades}.
  *
  * @author Dyson Parra
  */

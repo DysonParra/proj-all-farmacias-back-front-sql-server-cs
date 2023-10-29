@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Ciudad}.
+ * TODO: Description of {@code Ciudad}.
  *
  * @author Dyson Parra
  */

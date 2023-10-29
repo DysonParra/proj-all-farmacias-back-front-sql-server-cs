@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Barrio}.
+ * TODO: Description of {@code Barrio}.
  *
  * @author Dyson Parra
  */
