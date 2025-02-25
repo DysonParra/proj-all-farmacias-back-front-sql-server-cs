@@ -19,13 +19,17 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Project.Models;
 
-namespace Farmacias.Data
-{
-    public class FarmaciasContext : DbContext
-    {
+namespace Farmacias.Data {
+
+    /**
+     * TODO: Description of {@code FarmaciasContext}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class FarmaciasContext : DbContext {
         public FarmaciasContext (DbContextOptions<FarmaciasContext> options)
-            : base(options)
-        {
+            : base(options) {
         }
 
         public DbSet<Project.Models.Autenticacion> Autenticacion { get; set; } = default!;

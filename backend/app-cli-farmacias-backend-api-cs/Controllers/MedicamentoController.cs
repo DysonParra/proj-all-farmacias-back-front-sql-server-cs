@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Farmacias.Data;
 using Project.Models;
 
-namespace Farmacias.Controllers
-{
-    public class MedicamentoController : Controller
-    {
+namespace Farmacias.Controllers {
+
+    /**
+     * TODO: Description of {@code MedicamentoController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class MedicamentoController : Controller {
         private readonly FarmaciasContext _context;
 
-        public MedicamentoController(FarmaciasContext context)
-        {
+        public MedicamentoController(FarmaciasContext context) {
             _context = context;
         }
 
         // GET: Medicamento
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Medicamento.ToListAsync());
         }
 
         // GET: Medicamento/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Medicamento == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Medicamento == null) {
                 return NotFound();
             }
 
             var medicamento = await _context.Medicamento
                 .FirstOrDefaultAsync(m => m.IntId == id);
-            if (medicamento == null)
-            {
+            if (medicamento == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Farmacias.Controllers
         }
 
         // GET: Medicamento/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntId,BitMedicamentoPos,DtFechaCreacion,IntIdLaboratorio,StrAccionTerapeutica,StrCantidad,StrCodigoAtc,StrConcentracion,StrEan,StrMarca,StrNombre,StrNombreComercial,StrNombreGenerico,StrPresentacion,StrPrincipioActivo,StrRegistroInvima,StrUnidadMedida")] Medicamento medicamento)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntId,BitMedicamentoPos,DtFechaCreacion,IntIdLaboratorio,StrAccionTerapeutica,StrCantidad,StrCodigoAtc,StrConcentracion,StrEan,StrMarca,StrNombre,StrNombreComercial,StrNombreGenerico,StrPresentacion,StrPrincipioActivo,StrRegistroInvima,StrUnidadMedida")] Medicamento medicamento) {
+            if (ModelState.IsValid) {
                 _context.Add(medicamento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Farmacias.Controllers
         }
 
         // GET: Medicamento/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Medicamento == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Medicamento == null) {
                 return NotFound();
             }
 
             var medicamento = await _context.Medicamento.FindAsync(id);
-            if (medicamento == null)
-            {
+            if (medicamento == null) {
                 return NotFound();
             }
             return View(medicamento);
@@ -100,28 +94,21 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntId,BitMedicamentoPos,DtFechaCreacion,IntIdLaboratorio,StrAccionTerapeutica,StrCantidad,StrCodigoAtc,StrConcentracion,StrEan,StrMarca,StrNombre,StrNombreComercial,StrNombreGenerico,StrPresentacion,StrPrincipioActivo,StrRegistroInvima,StrUnidadMedida")] Medicamento medicamento)
-        {
-            if (id != medicamento.IntId)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntId,BitMedicamentoPos,DtFechaCreacion,IntIdLaboratorio,StrAccionTerapeutica,StrCantidad,StrCodigoAtc,StrConcentracion,StrEan,StrMarca,StrNombre,StrNombreComercial,StrNombreGenerico,StrPresentacion,StrPrincipioActivo,StrRegistroInvima,StrUnidadMedida")] Medicamento medicamento) {
+            if (id != medicamento.IntId) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(medicamento);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MedicamentoExists(medicamento.IntId))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!MedicamentoExists(medicamento.IntId)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Farmacias.Controllers
         }
 
         // GET: Medicamento/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Medicamento == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Medicamento == null) {
                 return NotFound();
             }
 
             var medicamento = await _context.Medicamento
                 .FirstOrDefaultAsync(m => m.IntId == id);
-            if (medicamento == null)
-            {
+            if (medicamento == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Farmacias.Controllers
         // POST: Medicamento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Medicamento == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Medicamento == null) {
                 return Problem("Entity set 'FarmaciasContext.Medicamento'  is null.");
             }
             var medicamento = await _context.Medicamento.FindAsync(id);
-            if (medicamento != null)
-            {
+            if (medicamento != null) {
                 _context.Medicamento.Remove(medicamento);
             }
 
@@ -167,8 +148,7 @@ namespace Farmacias.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MedicamentoExists(long? id)
-        {
+        private bool MedicamentoExists(long? id) {
             return _context.Medicamento.Any(e => e.IntId == id);
         }
     }

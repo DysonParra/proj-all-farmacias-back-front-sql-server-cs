@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Farmacias.Data;
 using Project.Models;
 
-namespace Farmacias.Controllers
-{
-    public class AutenticacionController : Controller
-    {
+namespace Farmacias.Controllers {
+
+    /**
+     * TODO: Description of {@code AutenticacionController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class AutenticacionController : Controller {
         private readonly FarmaciasContext _context;
 
-        public AutenticacionController(FarmaciasContext context)
-        {
+        public AutenticacionController(FarmaciasContext context) {
             _context = context;
         }
 
         // GET: Autenticacion
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Autenticacion.ToListAsync());
         }
 
         // GET: Autenticacion/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.Autenticacion == null)
-            {
+        public async Task<IActionResult> Details(string id) {
+            if (id == null || _context.Autenticacion == null) {
                 return NotFound();
             }
 
             var autenticacion = await _context.Autenticacion
                 .FirstOrDefaultAsync(m => m.StrUsuario == id);
-            if (autenticacion == null)
-            {
+            if (autenticacion == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Farmacias.Controllers
         }
 
         // GET: Autenticacion/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StrUsuario,StrContrasena")] Autenticacion autenticacion)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("StrUsuario,StrContrasena")] Autenticacion autenticacion) {
+            if (ModelState.IsValid) {
                 _context.Add(autenticacion);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Farmacias.Controllers
         }
 
         // GET: Autenticacion/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.Autenticacion == null)
-            {
+        public async Task<IActionResult> Edit(string id) {
+            if (id == null || _context.Autenticacion == null) {
                 return NotFound();
             }
 
             var autenticacion = await _context.Autenticacion.FindAsync(id);
-            if (autenticacion == null)
-            {
+            if (autenticacion == null) {
                 return NotFound();
             }
             return View(autenticacion);
@@ -100,28 +94,21 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StrUsuario,StrContrasena")] Autenticacion autenticacion)
-        {
-            if (id != autenticacion.StrUsuario)
-            {
+        public async Task<IActionResult> Edit(string id, [Bind("StrUsuario,StrContrasena")] Autenticacion autenticacion) {
+            if (id != autenticacion.StrUsuario) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(autenticacion);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AutenticacionExists(autenticacion.StrUsuario))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!AutenticacionExists(autenticacion.StrUsuario)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Farmacias.Controllers
         }
 
         // GET: Autenticacion/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null || _context.Autenticacion == null)
-            {
+        public async Task<IActionResult> Delete(string id) {
+            if (id == null || _context.Autenticacion == null) {
                 return NotFound();
             }
 
             var autenticacion = await _context.Autenticacion
                 .FirstOrDefaultAsync(m => m.StrUsuario == id);
-            if (autenticacion == null)
-            {
+            if (autenticacion == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Farmacias.Controllers
         // POST: Autenticacion/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            if (_context.Autenticacion == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(string id) {
+            if (_context.Autenticacion == null) {
                 return Problem("Entity set 'FarmaciasContext.Autenticacion'  is null.");
             }
             var autenticacion = await _context.Autenticacion.FindAsync(id);
-            if (autenticacion != null)
-            {
+            if (autenticacion != null) {
                 _context.Autenticacion.Remove(autenticacion);
             }
 
@@ -167,8 +148,7 @@ namespace Farmacias.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AutenticacionExists(string id)
-        {
+        private bool AutenticacionExists(string id) {
             return _context.Autenticacion.Any(e => e.StrUsuario == id);
         }
     }

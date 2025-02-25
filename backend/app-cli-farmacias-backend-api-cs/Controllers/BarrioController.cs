@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Farmacias.Data;
 using Project.Models;
 
-namespace Farmacias.Controllers
-{
-    public class BarrioController : Controller
-    {
+namespace Farmacias.Controllers {
+
+    /**
+     * TODO: Description of {@code BarrioController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class BarrioController : Controller {
         private readonly FarmaciasContext _context;
 
-        public BarrioController(FarmaciasContext context)
-        {
+        public BarrioController(FarmaciasContext context) {
             _context = context;
         }
 
         // GET: Barrio
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Barrio.ToListAsync());
         }
 
         // GET: Barrio/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Barrio == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Barrio == null) {
                 return NotFound();
             }
 
             var barrio = await _context.Barrio
                 .FirstOrDefaultAsync(m => m.IntIdBarrio == id);
-            if (barrio == null)
-            {
+            if (barrio == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Farmacias.Controllers
         }
 
         // GET: Barrio/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdBarrio,StrNombre,IntIdCiudad")] Barrio barrio)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdBarrio,StrNombre,IntIdCiudad")] Barrio barrio) {
+            if (ModelState.IsValid) {
                 _context.Add(barrio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Farmacias.Controllers
         }
 
         // GET: Barrio/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Barrio == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Barrio == null) {
                 return NotFound();
             }
 
             var barrio = await _context.Barrio.FindAsync(id);
-            if (barrio == null)
-            {
+            if (barrio == null) {
                 return NotFound();
             }
             return View(barrio);
@@ -100,28 +94,21 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdBarrio,StrNombre,IntIdCiudad")] Barrio barrio)
-        {
-            if (id != barrio.IntIdBarrio)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdBarrio,StrNombre,IntIdCiudad")] Barrio barrio) {
+            if (id != barrio.IntIdBarrio) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(barrio);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BarrioExists(barrio.IntIdBarrio))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!BarrioExists(barrio.IntIdBarrio)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Farmacias.Controllers
         }
 
         // GET: Barrio/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Barrio == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Barrio == null) {
                 return NotFound();
             }
 
             var barrio = await _context.Barrio
                 .FirstOrDefaultAsync(m => m.IntIdBarrio == id);
-            if (barrio == null)
-            {
+            if (barrio == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Farmacias.Controllers
         // POST: Barrio/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Barrio == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Barrio == null) {
                 return Problem("Entity set 'FarmaciasContext.Barrio'  is null.");
             }
             var barrio = await _context.Barrio.FindAsync(id);
-            if (barrio != null)
-            {
+            if (barrio != null) {
                 _context.Barrio.Remove(barrio);
             }
 
@@ -167,8 +148,7 @@ namespace Farmacias.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BarrioExists(long? id)
-        {
+        private bool BarrioExists(long? id) {
             return _context.Barrio.Any(e => e.IntIdBarrio == id);
         }
     }

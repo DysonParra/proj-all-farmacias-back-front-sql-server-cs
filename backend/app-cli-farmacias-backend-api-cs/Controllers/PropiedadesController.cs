@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Farmacias.Data;
 using Project.Models;
 
-namespace Farmacias.Controllers
-{
-    public class PropiedadesController : Controller
-    {
+namespace Farmacias.Controllers {
+
+    /**
+     * TODO: Description of {@code PropiedadesController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class PropiedadesController : Controller {
         private readonly FarmaciasContext _context;
 
-        public PropiedadesController(FarmaciasContext context)
-        {
+        public PropiedadesController(FarmaciasContext context) {
             _context = context;
         }
 
         // GET: Propiedades
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Propiedades.ToListAsync());
         }
 
         // GET: Propiedades/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Propiedades == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Propiedades == null) {
                 return NotFound();
             }
 
             var propiedades = await _context.Propiedades
                 .FirstOrDefaultAsync(m => m.IntIdPropiedad == id);
-            if (propiedades == null)
-            {
+            if (propiedades == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Farmacias.Controllers
         }
 
         // GET: Propiedades/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdPropiedad,StrDescripcionPropiedad,StrGrupo,StrNombrePropiedad,StrValorPropiedad")] Propiedades propiedades)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdPropiedad,StrDescripcionPropiedad,StrGrupo,StrNombrePropiedad,StrValorPropiedad")] Propiedades propiedades) {
+            if (ModelState.IsValid) {
                 _context.Add(propiedades);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Farmacias.Controllers
         }
 
         // GET: Propiedades/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Propiedades == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Propiedades == null) {
                 return NotFound();
             }
 
             var propiedades = await _context.Propiedades.FindAsync(id);
-            if (propiedades == null)
-            {
+            if (propiedades == null) {
                 return NotFound();
             }
             return View(propiedades);
@@ -100,28 +94,21 @@ namespace Farmacias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdPropiedad,StrDescripcionPropiedad,StrGrupo,StrNombrePropiedad,StrValorPropiedad")] Propiedades propiedades)
-        {
-            if (id != propiedades.IntIdPropiedad)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdPropiedad,StrDescripcionPropiedad,StrGrupo,StrNombrePropiedad,StrValorPropiedad")] Propiedades propiedades) {
+            if (id != propiedades.IntIdPropiedad) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(propiedades);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PropiedadesExists(propiedades.IntIdPropiedad))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!PropiedadesExists(propiedades.IntIdPropiedad)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Farmacias.Controllers
         }
 
         // GET: Propiedades/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Propiedades == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Propiedades == null) {
                 return NotFound();
             }
 
             var propiedades = await _context.Propiedades
                 .FirstOrDefaultAsync(m => m.IntIdPropiedad == id);
-            if (propiedades == null)
-            {
+            if (propiedades == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Farmacias.Controllers
         // POST: Propiedades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Propiedades == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Propiedades == null) {
                 return Problem("Entity set 'FarmaciasContext.Propiedades'  is null.");
             }
             var propiedades = await _context.Propiedades.FindAsync(id);
-            if (propiedades != null)
-            {
+            if (propiedades != null) {
                 _context.Propiedades.Remove(propiedades);
             }
 
@@ -167,8 +148,7 @@ namespace Farmacias.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PropiedadesExists(long? id)
-        {
+        private bool PropiedadesExists(long? id) {
             return _context.Propiedades.Any(e => e.IntIdPropiedad == id);
         }
     }
