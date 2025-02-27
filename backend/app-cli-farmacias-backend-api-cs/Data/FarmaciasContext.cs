@@ -28,7 +28,12 @@ namespace Farmacias.Data {
      * @since .NET 8 (LTS), C# 12
      */
     public class FarmaciasContext : DbContext {
-        public FarmaciasContext (DbContextOptions<FarmaciasContext> options)
+
+        /**
+         * TODO: Description of method {@code FarmaciasContext}.
+         *
+         */
+        public FarmaciasContext(DbContextOptions<FarmaciasContext> options)
             : base(options) {
         }
 
