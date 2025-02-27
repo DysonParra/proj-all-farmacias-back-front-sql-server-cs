@@ -33,16 +33,26 @@ namespace Farmacias.Controllers {
     public class AutenticacionController : Controller {
         private readonly FarmaciasContext _context;
 
+        /**
+         * TODO: Description of method {@code AutenticacionController}.
+         *
+         */
         public AutenticacionController(FarmaciasContext context) {
             _context = context;
         }
 
-        // GET: Autenticacion
+        /**
+         * GET: Autenticacion
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Autenticacion.ToListAsync());
         }
 
-        // GET: Autenticacion/Details/5
+        /**
+         * GET: Autenticacion/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Autenticacion == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Farmacias.Controllers {
             return View(autenticacion);
         }
 
-        // GET: Autenticacion/Create
+        /**
+         * GET: Autenticacion/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Autenticacion/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Autenticacion/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrUsuario,StrContrasena")] Autenticacion autenticacion) {
@@ -76,7 +92,10 @@ namespace Farmacias.Controllers {
             return View(autenticacion);
         }
 
-        // GET: Autenticacion/Edit/5
+        /**
+         * GET: Autenticacion/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Autenticacion == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Farmacias.Controllers {
             return View(autenticacion);
         }
 
-        // POST: Autenticacion/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Autenticacion/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrUsuario,StrContrasena")] Autenticacion autenticacion) {
@@ -117,7 +139,10 @@ namespace Farmacias.Controllers {
             return View(autenticacion);
         }
 
-        // GET: Autenticacion/Delete/5
+        /**
+         * GET: Autenticacion/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Autenticacion == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Farmacias.Controllers {
             return View(autenticacion);
         }
 
-        // POST: Autenticacion/Delete/5
+        /**
+         * POST: Autenticacion/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Farmacias.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code AutenticacionExists}.
+         *
+         */
         private bool AutenticacionExists(string id) {
             return _context.Autenticacion.Any(e => e.StrUsuario == id);
         }

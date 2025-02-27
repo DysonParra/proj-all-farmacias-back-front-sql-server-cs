@@ -33,16 +33,26 @@ namespace Farmacias.Controllers {
     public class MedicamentoController : Controller {
         private readonly FarmaciasContext _context;
 
+        /**
+         * TODO: Description of method {@code MedicamentoController}.
+         *
+         */
         public MedicamentoController(FarmaciasContext context) {
             _context = context;
         }
 
-        // GET: Medicamento
+        /**
+         * GET: Medicamento
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Medicamento.ToListAsync());
         }
 
-        // GET: Medicamento/Details/5
+        /**
+         * GET: Medicamento/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Medicamento == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Farmacias.Controllers {
             return View(medicamento);
         }
 
-        // GET: Medicamento/Create
+        /**
+         * GET: Medicamento/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Medicamento/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Medicamento/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntId,BitMedicamentoPos,DtFechaCreacion,IntIdLaboratorio,StrAccionTerapeutica,StrCantidad,StrCodigoAtc,StrConcentracion,StrEan,StrMarca,StrNombre,StrNombreComercial,StrNombreGenerico,StrPresentacion,StrPrincipioActivo,StrRegistroInvima,StrUnidadMedida")] Medicamento medicamento) {
@@ -76,7 +92,10 @@ namespace Farmacias.Controllers {
             return View(medicamento);
         }
 
-        // GET: Medicamento/Edit/5
+        /**
+         * GET: Medicamento/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Medicamento == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Farmacias.Controllers {
             return View(medicamento);
         }
 
-        // POST: Medicamento/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Medicamento/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntId,BitMedicamentoPos,DtFechaCreacion,IntIdLaboratorio,StrAccionTerapeutica,StrCantidad,StrCodigoAtc,StrConcentracion,StrEan,StrMarca,StrNombre,StrNombreComercial,StrNombreGenerico,StrPresentacion,StrPrincipioActivo,StrRegistroInvima,StrUnidadMedida")] Medicamento medicamento) {
@@ -117,7 +139,10 @@ namespace Farmacias.Controllers {
             return View(medicamento);
         }
 
-        // GET: Medicamento/Delete/5
+        /**
+         * GET: Medicamento/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Medicamento == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Farmacias.Controllers {
             return View(medicamento);
         }
 
-        // POST: Medicamento/Delete/5
+        /**
+         * POST: Medicamento/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Farmacias.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MedicamentoExists}.
+         *
+         */
         private bool MedicamentoExists(long? id) {
             return _context.Medicamento.Any(e => e.IntId == id);
         }

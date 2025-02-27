@@ -33,16 +33,26 @@ namespace Farmacias.Controllers {
     public class BarrioController : Controller {
         private readonly FarmaciasContext _context;
 
+        /**
+         * TODO: Description of method {@code BarrioController}.
+         *
+         */
         public BarrioController(FarmaciasContext context) {
             _context = context;
         }
 
-        // GET: Barrio
+        /**
+         * GET: Barrio
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Barrio.ToListAsync());
         }
 
-        // GET: Barrio/Details/5
+        /**
+         * GET: Barrio/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Barrio == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Farmacias.Controllers {
             return View(barrio);
         }
 
-        // GET: Barrio/Create
+        /**
+         * GET: Barrio/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Barrio/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Barrio/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdBarrio,StrNombre,IntIdCiudad")] Barrio barrio) {
@@ -76,7 +92,10 @@ namespace Farmacias.Controllers {
             return View(barrio);
         }
 
-        // GET: Barrio/Edit/5
+        /**
+         * GET: Barrio/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Barrio == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Farmacias.Controllers {
             return View(barrio);
         }
 
-        // POST: Barrio/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Barrio/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdBarrio,StrNombre,IntIdCiudad")] Barrio barrio) {
@@ -117,7 +139,10 @@ namespace Farmacias.Controllers {
             return View(barrio);
         }
 
-        // GET: Barrio/Delete/5
+        /**
+         * GET: Barrio/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Barrio == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Farmacias.Controllers {
             return View(barrio);
         }
 
-        // POST: Barrio/Delete/5
+        /**
+         * POST: Barrio/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Farmacias.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code BarrioExists}.
+         *
+         */
         private bool BarrioExists(long? id) {
             return _context.Barrio.Any(e => e.IntIdBarrio == id);
         }

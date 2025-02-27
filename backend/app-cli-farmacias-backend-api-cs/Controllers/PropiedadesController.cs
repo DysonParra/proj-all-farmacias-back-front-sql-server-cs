@@ -33,16 +33,26 @@ namespace Farmacias.Controllers {
     public class PropiedadesController : Controller {
         private readonly FarmaciasContext _context;
 
+        /**
+         * TODO: Description of method {@code PropiedadesController}.
+         *
+         */
         public PropiedadesController(FarmaciasContext context) {
             _context = context;
         }
 
-        // GET: Propiedades
+        /**
+         * GET: Propiedades
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Propiedades.ToListAsync());
         }
 
-        // GET: Propiedades/Details/5
+        /**
+         * GET: Propiedades/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Propiedades == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Farmacias.Controllers {
             return View(propiedades);
         }
 
-        // GET: Propiedades/Create
+        /**
+         * GET: Propiedades/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Propiedades/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Propiedades/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdPropiedad,StrDescripcionPropiedad,StrGrupo,StrNombrePropiedad,StrValorPropiedad")] Propiedades propiedades) {
@@ -76,7 +92,10 @@ namespace Farmacias.Controllers {
             return View(propiedades);
         }
 
-        // GET: Propiedades/Edit/5
+        /**
+         * GET: Propiedades/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Propiedades == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Farmacias.Controllers {
             return View(propiedades);
         }
 
-        // POST: Propiedades/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Propiedades/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdPropiedad,StrDescripcionPropiedad,StrGrupo,StrNombrePropiedad,StrValorPropiedad")] Propiedades propiedades) {
@@ -117,7 +139,10 @@ namespace Farmacias.Controllers {
             return View(propiedades);
         }
 
-        // GET: Propiedades/Delete/5
+        /**
+         * GET: Propiedades/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Propiedades == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Farmacias.Controllers {
             return View(propiedades);
         }
 
-        // POST: Propiedades/Delete/5
+        /**
+         * POST: Propiedades/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Farmacias.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code PropiedadesExists}.
+         *
+         */
         private bool PropiedadesExists(long? id) {
             return _context.Propiedades.Any(e => e.IntIdPropiedad == id);
         }
