@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {Propiedades}
+ * @overview        {Propiedades}
  *
  * @version         2.0
  *

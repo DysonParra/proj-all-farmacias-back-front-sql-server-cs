@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {PropiedadesController}
+ * @overview        {PropiedadesController}
  *
  * @version         2.0
  *

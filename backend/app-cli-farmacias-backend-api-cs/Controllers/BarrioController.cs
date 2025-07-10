@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {BarrioController}
+ * @overview        {BarrioController}
  *
  * @version         2.0
  *

@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {MedicamentoOnlineController}
+ * @overview        {MedicamentoOnlineController}
  *
  * @version         2.0
  *

@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {LaboratorioMedicamento}
+ * @overview        {LaboratorioMedicamento}
  *
  * @version         2.0
  *
